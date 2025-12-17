@@ -5,6 +5,22 @@ remote_state {
   }
 }
 
+# プロバイダーキャッシュの共有設定
+terraform {
+  extra_arguments "plugin_cache" {
+    commands = [
+      "init",
+      "plan",
+      "apply",
+      "destroy",
+    ]
+    
+    env_vars = {
+      TF_PLUGIN_CACHE_DIR = "${get_parent_terragrunt_dir()}/.terraform-plugin-cache"
+    }
+  }
+}
+
 generate "versions" {
   path      = "versions.tf"
   if_exists = "overwrite"

@@ -42,3 +42,13 @@ terraform.rc
 # Optional: ignore plan files saved before destroying Terraform configuration
 # Uncomment the line below if you want to ignore planout files.
 planout
+
+# Terragrunt cache directories
+**/.terragrunt-cache/
+
+# Terragrunt provider plugin cache
+.terraform-plugin-cache/
+
+# Terragrunt generated files (if you want to ignore them)
+# **/versions.tf
+# **/provider.tf
